@@ -1,0 +1,14 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "forpleuvoir.mc.suika_command.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "refmap": "suika_command.refmap.json",
+  "mixins": [
+  ],
+  "client": [
+  ],
+  "injectors": {
+	"defaultRequire": 1
+  }
+}

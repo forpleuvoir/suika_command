@@ -1,0 +1,25 @@
+modLoader = "javafml" #mandatory
+loaderVersion = "[36,)" #mandatory This is typically bumped every Minecraft version by Forge. See our download page for lists of versions.
+license = "All Rights Reserved"
+
+[[mods]] #mandatory
+modId = "suika_command" #mandatory
+
+version = "${file.jarVersion}" #mandatory
+displayName = "Suika_command" #mandatory
+authors = "forpleuvoir" #optional
+description = '''
+wu
+'''
+[[dependencies.suika_command]] #optional
+modId = "forge"
+mandatory = true #mandatory
+versionRange = "[36,)" #mandatory
+ordering = "NONE"
+side = "BOTH"
+[[dependencies.suika_command]]
+modId = "minecraft"
+mandatory = true
+versionRange = "[1.16.5,1.17)"
+ordering = "NONE"
+side = "BOTH"
