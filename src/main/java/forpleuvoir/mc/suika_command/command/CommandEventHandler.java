@@ -1,6 +1,7 @@
 package forpleuvoir.mc.suika_command.command;
 
 import com.mojang.brigadier.CommandDispatcher;
+import forpleuvoir.mc.suika_command.teleport.WarpPoint;
 import net.minecraft.command.CommandSource;
 import net.minecraftforge.event.RegisterCommandsEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -23,9 +24,13 @@ import net.minecraftforge.fml.common.Mod;
 public class CommandEventHandler {
 
 	@SubscribeEvent
-	public static void onServerStarting(RegisterCommandsEvent event) {
+	public static void commandRegister(RegisterCommandsEvent event) {
 		CommandDispatcher<CommandSource> dispatcher = event.getDispatcher();
+		BackCommand.register(dispatcher);
+		HomeCommand.register(dispatcher);
+		SuicideCommand.register(dispatcher);
+		TpCommand.register(dispatcher);
+		WarpCommand.register(dispatcher);
 	}
-
 
 }
