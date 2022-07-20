@@ -56,6 +56,7 @@ public class WarpPoint implements JsonData {
 		if (data.containsKey(name)) {
 			data.remove(name);
 			player.sendMessage(new StringTextComponent("§6已经删除名为 §b" + name + "§6 的传送点"), player.getUniqueID());
+			return;
 		}
 		player.sendMessage(new StringTextComponent("§c没有找到 §b" + name + "§c 的传送点"), player.getUniqueID());
 	}

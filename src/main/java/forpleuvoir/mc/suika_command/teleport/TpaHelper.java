@@ -43,6 +43,7 @@ public class TpaHelper {
 						, player.getUniqueID()
 				);
 				data.remove(player);
+				return;
 			}
 		}
 		player.sendMessage(new StringTextComponent("没有待接受的传送").mergeStyle(TextFormatting.RED)

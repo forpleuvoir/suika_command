@@ -6,6 +6,7 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import net.minecraft.server.MinecraftServer;
+import net.minecraft.world.storage.FolderName;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.server.FMLServerStartingEvent;
@@ -15,6 +16,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
+import java.nio.file.Path;
 
 /**
  * 传送点处理器
@@ -75,26 +77,32 @@ public class TeleportPointHandler {
 	}
 
 	private static void saveFile(MinecraftServer server, JsonObject object) {
-		File file = server.getFile(FILE_NAME);
+		File file = getFile(server);
 		try {
-			if(!file.exists()){
+			if (!file.exists()) {
 				file.createNewFile();
 			}
 			String s = gson.toJson(object);
 			Files.write(s, file, StandardCharsets.UTF_8);
-		} catch (Exception e) {
+		} catch (Exception ignored) {
 		}
 	}
 
 	private static JsonObject loadFile(MinecraftServer server) {
-		File file = server.getFile(FILE_NAME);
+		File file = getFile(server);
+		System.out.println(file.getAbsolutePath());
 		try {
-			if(!file.exists()){
+			if (!file.exists()) {
 				file.createNewFile();
 			}
 			return new JsonParser().parse(new FileReader(file)).getAsJsonObject();
 		} catch (Exception e) {
 			return null;
 		}
+	}
+
+	private static File getFile(MinecraftServer server) {
+		Path path = server.func_240776_a_(new FolderName("suika"));
+		return new File(path.toFile(), FILE_NAME);
 	}
 }

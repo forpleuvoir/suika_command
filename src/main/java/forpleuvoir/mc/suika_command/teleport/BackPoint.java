@@ -50,6 +50,7 @@ public class BackPoint implements JsonData {
 		if (data.containsKey(uuid)) {
 			data.get(uuid).teleport(player);
 			player.sendMessage(new StringTextComponent("已传送到上一个标记点").mergeStyle(TextFormatting.GOLD),player.getUniqueID());
+			return;
 		}
 		player.sendMessage(new StringTextComponent("没有找到上一个标记点").mergeStyle(TextFormatting.RED),player.getUniqueID());
 	}

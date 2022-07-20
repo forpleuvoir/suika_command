@@ -26,7 +26,6 @@ minecraft {
 
 	mappings channel: 'snapshot', version: '20210309-1.16.5'
 
-
 	runs {
 		client {
 			workingDirectory project.file('run')
