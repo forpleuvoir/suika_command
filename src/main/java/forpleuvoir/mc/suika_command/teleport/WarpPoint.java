@@ -64,7 +64,7 @@ public class WarpPoint implements JsonData {
 	public void toWarp(ServerPlayerEntity player, String name) {
 		if (data.containsKey(name)) {
 			data.get(name).teleport(player);
-			player.sendMessage(new StringTextComponent("§c已将你传送到 §b" + name), player.getUniqueID());
+			player.sendMessage(new StringTextComponent("§6已将你传送到 §b" + name), player.getUniqueID());
 		} else {
 			player.sendMessage(new StringTextComponent("§c没有找到 §b" + name + "§c 的传送点"), player.getUniqueID());
 		}

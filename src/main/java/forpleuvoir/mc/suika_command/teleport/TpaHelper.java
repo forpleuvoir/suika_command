@@ -53,15 +53,15 @@ public class TpaHelper {
 
 	public void sendTpa(ServerPlayerEntity sender, ServerPlayerEntity target, long nowTime) {
 		data.put(target, new Tpa(sender, target, nowTime));
-		target.sendMessage(new StringTextComponent("玩家 ").mergeStyle(TextFormatting.GOLD)
+		target.sendMessage(new StringTextComponent("§6玩家 ")
 						.appendSibling(sender.getName()).mergeStyle(TextFormatting.AQUA)
-						.appendString(" 请求传送到你身边").mergeStyle(TextFormatting.GOLD)
+						.appendString(" §6请求传送到你身边")
 				, sender.getUniqueID()
 		);
-		target.sendMessage(new StringTextComponent("120秒内点击 ").mergeStyle(TextFormatting.GOLD)
-						.appendString(" 接受传送")
-						.modifyStyle(style -> style.setClickEvent(new ClickEvent(ClickEvent.Action.RUN_COMMAND, "tpaccept")))
-						.mergeStyle(TextFormatting.GREEN)
+		target.sendMessage(new StringTextComponent("§6120秒内点击 ")
+						.appendSibling(new StringTextComponent(" 接受传送").modifyStyle(style -> style.setClickEvent(new ClickEvent(ClickEvent.Action.RUN_COMMAND, "/tpaccept")))
+								.mergeStyle(TextFormatting.GREEN)
+						)
 				, sender.getUniqueID());
 
 		sender.sendMessage(new StringTextComponent("传送请求已发送").mergeStyle(TextFormatting.GOLD), sender.getUniqueID());
@@ -69,15 +69,15 @@ public class TpaHelper {
 
 	public void sendTpahere(ServerPlayerEntity sender, ServerPlayerEntity target, long nowTime) {
 		data.put(target, new Tpa(target, sender, nowTime));
-		target.sendMessage(new StringTextComponent("玩家 ").mergeStyle(TextFormatting.GOLD)
+		target.sendMessage(new StringTextComponent("§6玩家 ")
 						.appendSibling(sender.getName()).mergeStyle(TextFormatting.AQUA)
-						.appendString(" 请求请将传送到TA身边").mergeStyle(TextFormatting.GOLD)
+						.appendString(" §6请求请将传送到TA身边")
 				, sender.getUniqueID()
 		);
-		target.sendMessage(new StringTextComponent("120秒内点击 ").mergeStyle(TextFormatting.GOLD)
-						.appendString(" 接受传送")
-						.modifyStyle(style -> style.setClickEvent(new ClickEvent(ClickEvent.Action.RUN_COMMAND, "tpaccept")))
-						.mergeStyle(TextFormatting.GREEN)
+		target.sendMessage(new StringTextComponent("§6120秒内点击 ")
+						.appendSibling(new StringTextComponent(" 接受传送").modifyStyle(style -> style.setClickEvent(new ClickEvent(ClickEvent.Action.RUN_COMMAND, "/tpaccept")))
+								.mergeStyle(TextFormatting.GREEN)
+						)
 				, sender.getUniqueID());
 
 		sender.sendMessage(new StringTextComponent("传送请求已发送").mergeStyle(TextFormatting.GOLD), sender.getUniqueID());
